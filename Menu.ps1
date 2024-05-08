@@ -12,10 +12,10 @@ SSSSSSSSSSSSSSSSSS   SSSSSSSSSSSSSSSSSS           S
 |  Troubleshooting Script - USER MENU                    | 
 +========================================================+
 |                                                        |
-|    1) RDP                                              |
+|    1) RDP - Disconnect                                              |
 |    2) Driver Version                                   |
 |    3) Cluster Port                                     |
-|    4) Check cluster DB                                 |
+|    4) Cluster DB Corruption Check                                |
 |    5) Exit                                             |
 |                                                        |       
 +========================================================+
