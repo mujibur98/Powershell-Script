@@ -8,17 +8,17 @@ SSSSSSSSSSSSSSSSSS   SSSSSSSSSSSSSSSSSS           S
         SSSSSSSSSS           SSSSSSSSSS           S
 SSSSSSSSSSSSSSSSSS   SSSSSSSSSSSSSSSSSS           S
 
-+===============================================+
-|  Troubleshooting Script - USER MENU           | 
-+===============================================+
-|                                               |
-|    1) RDP                                     |
-|    2) Driver Version                          |
-|    3) Cluster Port                            |
-|    4) Check cluster DB                        |
-|    5) Exit                                    |
-|                                               |       
-+===============================================+
++========================================================+
+|  Troubleshooting Script - USER MENU                    | 
++========================================================+
+|                                                        |
+|    1) RDP                                              |
+|    2) Driver Version                                   |
+|    3) Cluster Port                                     |
+|    4) Check cluster DB                                 |
+|    5) Exit                                             |
+|                                                        |       
++========================================================+
           Script written by MUJIBUR
 "@
 
