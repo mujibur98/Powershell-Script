@@ -52,8 +52,8 @@ Start-Sleep -Seconds 5
 DisplayMenu
 }
 5 {
-#OPTION5 - RDP - Check port open    
-Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/check-cluster-db.ps1')
+#OPTION5 - RDP Check port open    
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/rdp-port-open.ps1')
 Start-Sleep -Seconds 5
 DisplayMenu
 }
