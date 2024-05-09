@@ -12,11 +12,12 @@ SSSSSSSSSSSSSSSSSS   SSSSSSSSSSSSSSSSSS           S
 |  Troubleshooting Script - USER MENU                    | 
 +========================================================+
 |                                                        |
-|    1) RDP - Disconnect                                              |
+|    1) RDP - Disconnect                                 |
 |    2) Driver Version                                   |
 |    3) Cluster Port                                     |
-|    4) Cluster DB Corruption Check                                |
-|    5) Exit                                             |
+|    4) Cluster DB Corruption Check                      |
+|    5) RDP - Check port open                            |
+|    6) Exit                                             |
 |                                                        |       
 +========================================================+
           Script written by MUJIBUR
@@ -51,7 +52,13 @@ Start-Sleep -Seconds 5
 DisplayMenu
 }
 5 {
-#OPTION5 - EXIT
+#OPTION5 - Cluster Port
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/check-cluster-db.ps1')
+Start-Sleep -Seconds 5
+DisplayMenu
+}
+6 {
+#OPTION6 - EXIT
 Write-Host "Bye"
 Break
 }
