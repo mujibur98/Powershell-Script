@@ -46,13 +46,13 @@ Start-Sleep -Seconds 5
 DisplayMenu
 }
 4 {
-#OPTION4 - Cluster Port
+#OPTION4 - Cluster DB Corruption Check 
 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/check-cluster-db.ps1')
 Start-Sleep -Seconds 5
 DisplayMenu
 }
 5 {
-#OPTION5 - Cluster Port
+#OPTION5 - RDP - Check port open    
 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/check-cluster-db.ps1')
 Start-Sleep -Seconds 5
 DisplayMenu
