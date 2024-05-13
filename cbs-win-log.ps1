@@ -21,8 +21,8 @@ $cbsLogDestinationPath = "C:\dell\cbs.log"
 Copy-Item -Path $cbsLogSourcePath -Destination $cbsLogDestinationPath -Force
 
 Write-host "=========================================="
-Write-host   "File location C:\Dell\cbs.log"
-Write-host   "File location C:\Dell\WindowsUpdate.log"
+Write-host "    File location C:\Dell\cbs.log         "
+Write-host "   File location C:\Dell\WindowsUpdate.log"
 Write-host "=========================================="
 
 Write-host "================================="
