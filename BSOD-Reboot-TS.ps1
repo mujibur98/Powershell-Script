@@ -4,7 +4,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # Event IDs for BugCheck and Reboot
 $bugCheckId = "1001" #  BugCheck Event ID
 $rebootId = "1074"   #  Reboot Event ID
-$Unexpected = "6008"   #  Unexpected reboot Event ID
+#$Unexpected = "6008"   #  Unexpected reboot Event ID
 
 
 # Create an OpenFileDialog to select the system*.evtx files
@@ -23,7 +23,7 @@ if ($openFileDialog.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
 
     # Loop through each file and check for the events
     foreach ($file in $evtxFiles) {
-        $events = Get-WinEvent -Path $file -FilterXPath "*[System[(EventID=$bugCheckId) or (EventID=$rebootId) or (EventID=$Unexpected)]]"
+        $events = Get-WinEvent -Path $file -FilterXPath "*[System[(EventID=$bugCheckId) or (EventID=$rebootId) ]]"
         $matchingEvents += $events
     }
 
