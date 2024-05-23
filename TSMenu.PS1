@@ -20,7 +20,7 @@ Write-Host @"
 |                                                        |
 |                                                        |       
 +========================================================+
-          Script written by MUJIBUR
+                 Script written by MUJIBUR
 "@
 
 
