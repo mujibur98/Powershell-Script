@@ -1,3 +1,5 @@
+# Load the Windows Forms assembly
+Add-Type -AssemblyName System.Windows.Forms
 cls
 $eventLogPath = [System.Windows.Forms.OpenFileDialog]::new()
 $eventLogPath.Title = "Select Event Log File"
