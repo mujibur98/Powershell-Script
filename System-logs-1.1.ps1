@@ -11,6 +11,37 @@ if ($eventLogPath.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
     Write-Host "Downloading System log..."
     $eventLog = Get-WinEvent -Path $eventLogPath.FileName
    #Progress Bar  
+   
+# Maximize the current PowerShell console window
+Add-Type -TypeDefinition @"
+    using System;
+    using System.Runtime.InteropServices;
+
+    public class WindowHelper {
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetForegroundWindow();
+
+        public const int SW_MAXIMIZE = 3;
+
+        public static void MaximizeWindow() {
+            IntPtr handle = GetForegroundWindow();
+            ShowWindow(handle, SW_MAXIMIZE);
+        }
+    }
+"@
+
+# Call the MaximizeWindow function
+[WindowHelper]::MaximizeWindow()
+
+# Maxmize script ends
+
+
+
+   
    cls
     For ($i = 0; $i -le 100; $i++) {
     Start-Sleep -Milliseconds 20
