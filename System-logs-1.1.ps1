@@ -8,8 +8,10 @@ $eventLogPath.Multiselect = $false
 
 if ($eventLogPath.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
     # Read the event log file
+    Write-Host "Downloading System log..."
     $eventLog = Get-WinEvent -Path $eventLogPath.FileName
    #Progress Bar  
+   cls
     For ($i = 0; $i -le 100; $i++) {
     Start-Sleep -Milliseconds 20
     Write-Progress -Activity "Counting to 100" -Status "Current Count: $i" -PercentComplete $i -CurrentOperation "Counting ..."
