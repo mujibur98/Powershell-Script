@@ -7,8 +7,8 @@ Write-Host @"
 |                  Inspector Gadget!                     | 
 +========================================================+
 |                                                        |
-|    1) Check system log for reboot 
-|    2) Check application log  
+|    1) Check system log for reboot                      |
+|    2) Check application log                            |
 |    3) Exit                                             |
 |                                                        |
 |                                                        |
