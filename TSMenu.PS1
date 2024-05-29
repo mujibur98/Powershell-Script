@@ -7,8 +7,9 @@ Write-Host @"
 |                  Inspector Gadget!                     | 
 +========================================================+
 |                                                        |
-|    1) Check system log for reboot                      |
-|    2) Exit                                             |
+|    1) Check system log for reboot 
+|    2) Check application log  
+|    3) Exit                                             |
 |                                                        |
 |                                                        |
 |                                                        |       
@@ -27,7 +28,13 @@ Break
 DisplayMenu
 }
 2 {
-#OPTION2 - Exit
+#OPTION2 - Check system log for reboot  
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/applicationlog-1.0.ps1')
+Break
+DisplayMenu
+}
+3 {
+#OPTION3 - Exit
 exit
 DisplayMenu
 }
