@@ -1,6 +1,6 @@
 # Load the Windows Forms assembly
 Add-Type -AssemblyName System.Windows.Forms
-#cls
+cls
 
 # Prompt the user to select an event log file
 $eventLogPath = [System.Windows.Forms.OpenFileDialog]::new()
@@ -45,7 +45,7 @@ Add-Type -TypeDefinition @"
 
 
 
-#cls
+cls
     For ($i = 0; $i -le 100; $i++) {
     Start-Sleep -Milliseconds 20
     Write-Progress -Activity "Counting to 100" -Status "Current Count: $i" -PercentComplete $i -CurrentOperation "Counting ..."
