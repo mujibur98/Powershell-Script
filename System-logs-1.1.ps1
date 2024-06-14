@@ -50,7 +50,7 @@ Add-Type -TypeDefinition @"
     # Check if the log name is the system log
     if ($eventLog.LogName -eq "System") {
         # Define the desired event IDs
-        $desiredEventIDs = 1001, 1074, 6008, 41
+        $desiredEventIDs = 1001, 1074, 6008, 41, 161
 cls
         # Check if each event ID exists in the log
 	Write-Host "**************************************************************************************************************************" -ForegroundColor Green
