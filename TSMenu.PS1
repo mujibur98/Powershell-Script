@@ -4,7 +4,7 @@ Write-Host @"
 
                     
 +========================================================+
-|                  Inspector Gadget!                     | 
+|                  Inspector Gadget!      Version 1.2    | 
 +========================================================+
 |                                                        |
 |    1) Check system log for reboot                      |
@@ -29,7 +29,7 @@ DisplayMenu
 }
 2 {
 #OPTION2 - Check system log for reboot  
-Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/applicationlog-1.0.ps1')
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/applicationlog-1.1.ps1')
 Break
 DisplayMenu
 }
