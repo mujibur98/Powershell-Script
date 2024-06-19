@@ -23,7 +23,7 @@ Switch ($MENU)
 {
 1 {
 #OPTION1 - Check system log for reboot  
-Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/System-logs-1.1.ps1')
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/System-logs-1.2.ps1')
 Break
 DisplayMenu
 }
