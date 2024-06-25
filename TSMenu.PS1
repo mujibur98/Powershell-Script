@@ -4,7 +4,7 @@ Write-Host @"
 
                     
 +========================================================+
-|                  Inspector Gadget!      Version 1.2    | 
+|                  Inspector Gadget!      Version 1.31   | 
 +========================================================+
 |                                                        |
 |    1) Check system log for reboot                      |
