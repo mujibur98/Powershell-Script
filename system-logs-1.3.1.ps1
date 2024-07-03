@@ -126,7 +126,7 @@ Add-Type -TypeDefinition @"
     # Check if the log name is the system log
     if ($eventLog.LogName -eq "System") {
         # Define the desired event IDs
-        $desiredEventIDs = 1001, 1074, 6008, 41, 161
+        $desiredEventIDs = 1001, 1074, 6008, 41, 161, 55
 cls
         # Check if each event ID exists in the log
 	Write-Host "**************************************************************************************************************************" -ForegroundColor Green
@@ -134,8 +134,9 @@ cls
         Write-Host "*Event ID 6008 is an error that indicates that the system shut down unexpectedly                                         *" -ForegroundColor Green
 	Write-Host "*Event ID 1001 is an error that the computer has rebooted from a bugcheck                                                *" -ForegroundColor Green
 	Write-Host "*Event ID 41 is an error that indicates that some unexpected activity prevented Windows from shutting down correctly     *" -ForegroundColor Green
+ 	Write-Host "*Event ID 55 NTFS errors "The file system structure on the disk is corrupt and unusable                                  *" -ForegroundColor Green
 	Write-Host "*      Some Event IDs will not have any messages due to your system not having the required components installed         *" -ForegroundColor Green
-	Write-Host "**************************************************************************************************************************" -ForegroundColor Green
+ 	Write-Host "**************************************************************************************************************************" -ForegroundColor Green
 
 
         foreach ($eventID in $desiredEventIDs) {
