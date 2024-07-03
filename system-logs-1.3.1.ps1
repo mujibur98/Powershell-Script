@@ -134,8 +134,8 @@ cls
         Write-Host "*Event ID 6008 is an error that indicates that the system shut down unexpectedly                                         *" -ForegroundColor Green
 	Write-Host "*Event ID 1001 is an error that the computer has rebooted from a bugcheck                                                *" -ForegroundColor Green
 	Write-Host "*Event ID 41 is an error that indicates that some unexpected activity prevented Windows from shutting down correctly     *" -ForegroundColor Green
- 	Write-Host "*      Some Event IDs will not have any messages due to your system not having the required components installed         *" -ForegroundColor Green
- 	Write-Host "**************************************************************************************************************************" -ForegroundColor Green
+	Write-Host "*      Some Event IDs will not have any messages due to your system not having the required components installed         *" -ForegroundColor Green
+	Write-Host "**************************************************************************************************************************" -ForegroundColor Green
 
 
         foreach ($eventID in $desiredEventIDs) {
@@ -217,5 +217,3 @@ if (-not $timeZoneChanged) {
     Set-TimeZoneById -timeZoneId $originalTimeZone
     Write-Host "Time zone reverted to the original setting: $originalTimeZone"
 }
-
-
