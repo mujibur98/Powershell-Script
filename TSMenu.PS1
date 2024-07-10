@@ -28,8 +28,8 @@ Break
 DisplayMenu
 }
 2 {
-#OPTION2 - Check system log for reboot  
-Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/applicationlog-1.1.ps1')
+#OPTION2 - Check Application log for reboot  
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mujibur2024/Powershell-Script/main/applicationlog-1.2.ps1')
 Break
 DisplayMenu
 }
