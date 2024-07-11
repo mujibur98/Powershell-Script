@@ -16,7 +16,7 @@ if ($openFileDialog.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
     Write-Warning "No file selected."
     exit
 }
-
+Write-Host "Downloading System log..."
 # Read the event log file
 $events = Get-WinEvent -Path $eventLogPath | Where-Object { $_.Id -eq 6013 }
 
@@ -41,7 +41,7 @@ if ($latestEvent.Message -match '\d+') {
 $days = [Math]::Floor($uptimeSeconds / (60 * 60 * 24))
 $hours = [Math]::Floor(($uptimeSeconds % (60 * 60 * 24)) / (60 * 60))
 $minutes = [Math]::Floor(($uptimeSeconds % (60 * 60)) / 60)
-Write-Host "Downloading System log..."
+
 # Display the results
 Write-Host "*****************************************************"
 Write-Host "Server up Time :", "Days: $days", "Hours: $hours" , "Minutes: $minutes"
