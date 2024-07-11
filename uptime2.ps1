@@ -41,7 +41,7 @@ if ($latestEvent.Message -match '\d+') {
 $days = [Math]::Floor($uptimeSeconds / (60 * 60 * 24))
 $hours = [Math]::Floor(($uptimeSeconds % (60 * 60 * 24)) / (60 * 60))
 $minutes = [Math]::Floor(($uptimeSeconds % (60 * 60)) / 60)
-
+Write-Host "Downloading System log..."
 # Display the results
 Write-Host "*****************************************************"
 Write-Host "Server up Time :", "Days: $days", "Hours: $hours" , "Minutes: $minutes"
