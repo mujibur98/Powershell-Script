@@ -61,7 +61,7 @@ Write-Host "*****************************************************"
 
     # Display the event dates
     Write-Host "Starting Event Date: $($lastEventDate.ToString('yyyy-MM-dd'))"
-    Write-Host "Ending Event Date: $($firstEventDate.ToString('yyyy-MM-dd'))"
+    Write-Host "Ending Event Date:   $($firstEventDate.ToString('yyyy-MM-dd'))"
     Write-Host "*****************************************************"
     
 
