@@ -1,3 +1,4 @@
+clear-host
 cls
 # Load the Windows Forms assembly
 Add-Type -AssemblyName System.Windows.Forms
