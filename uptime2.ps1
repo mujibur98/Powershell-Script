@@ -28,7 +28,7 @@ if (!$latestEvent) {
     Write-Warning "No event ID 6013 found in the System log."
     exit
 }
-
+cls
 # Extract uptime in seconds from the latest event message
 if ($latestEvent.Message -match '\d+') {
     $uptimeSeconds = [int]$matches[0]
