@@ -42,9 +42,9 @@ $hours = [Math]::Floor(($uptimeSeconds % (60 * 60 * 24)) / (60 * 60))
 $minutes = [Math]::Floor(($uptimeSeconds % (60 * 60)) / 60)
 
 # Display the results
-Write-Host "**********************************************************************"
+Write-Host "*****************************************************"
 Write-Host "Server up Time :", "Days: $days", "Hours: $hours" , "Minutes: $minutes"
-Write-Host "**********************************************************************"
+Write-Host "*****************************************************"
 
 # Show the dialog and get the selected file
     # Read the event log file
@@ -61,5 +61,6 @@ Write-Host "********************************************************************
     # Display the event dates
     Write-Host "Starting Event Date: $($lastEventDate.ToString('yyyy-MM-dd'))"
     Write-Host "Ending Event Date: $($firstEventDate.ToString('yyyy-MM-dd'))"
+    Write-Host "*****************************************************"
     
 
