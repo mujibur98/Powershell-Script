@@ -31,6 +31,7 @@ foreach ($node in $clusterNodes) {
     $computerSystem = Invoke-Command -Session $session -ScriptBlock { Get-CimInstance -ClassName Win32_ComputerSystem }
     Write-Output "Node: $($node.Name) - Computer Name: $($computerSystem.Name)"
     Write-Output "Node: $($node.Name) - Domain: $($computerSystem.Domain)"
+    Write-Output "Node: $($node.Name) - Model: $($computerSystem.Model)"
 
     # Ping the domain from the node
     $pingResult = Invoke-Command -Session $session -ScriptBlock {
