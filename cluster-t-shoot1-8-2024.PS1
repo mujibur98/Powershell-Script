@@ -7,62 +7,47 @@ if ($biosManufacturer -ne "Dell Inc.") {
     exit
 }
 
-Write-Output "Verifiying Dell System...." 
+Write-Output "Verifying Dell System...." 
 
 Start-Sleep -s 5
 clear-host
 
-Write-Host "******************************Ping DC From All Nodes ******************************" 
+Write-Host "******************************Ping Cluster Node to DC ******************************" 
 # Get all cluster nodes
 $clusterNodes = Get-ClusterNode
 
-# Initialize an array to store the results
-$results = @()
-
 # Loop through each cluster node
 foreach ($node in $clusterNodes) {
-    # Get the server name
-    $serverName = $node.Name
+    Write-Output "Processing node: $($node.Name)"
+    
+    # Enter PSSession to the node
+    $session = New-PSSession -ComputerName $node.Name
 
-    # Use Enter-PSSession to run commands on the remote node
-    Enter-PSSession -ComputerName $serverName
+    # Get BIOS Serial Number
+    $bios = Invoke-Command -Session $session -ScriptBlock { Get-WmiObject -Class Win32_BIOS | Select-Object SerialNumber }
+    Write-Output "Node: $($node.Name) - Service Tag: $($bios.SerialNumber)"
 
-    # Get the BIOS serial number
-    $biosInfo = Get-WmiObject -Class Win32_BIOS | Select-Object SerialNumber
+    # Get Computer System information
+    $computerSystem = Invoke-Command -Session $session -ScriptBlock { Get-CimInstance -ClassName Win32_ComputerSystem }
+    Write-Output "Node: $($node.Name) - Computer Name: $($computerSystem.Name)"
+    Write-Output "Node: $($node.Name) - Domain: $($computerSystem.Domain)"
 
-    # Get the computer system information
-    $computerSystem = Get-CimInstance -ClassName Win32_ComputerSystem
+    # Ping the domain from the node
+    $pingResult = Invoke-Command -Session $session -ScriptBlock {
+        param ($domain)
+        Test-Connection -ComputerName $domain -Count 1 -Quiet
+    } -ArgumentList $computerSystem.Domain
 
-    # Get the domain name and model from the computer system information
-    $domainName = $computerSystem.Domain
-    $model = $computerSystem.Model
-
-    # Ping the domain
-    $pingResult = Test-Connection -ComputerName $domainName -Count 1
-
-    # Exit the remote session
-    Exit-PSSession
-
-    # Check if the ping was successful
-    if ($pingResult.StatusCode -eq 0) {
-        $pingStatus = "Ping to $domainName from $serverName was successful."
+    if ($pingResult) {
+        Write-Output "Node: $($node.Name) - Domain $($computerSystem.Domain) is reachable"
     } else {
-        $pingStatus = "Ping to $domainName from $serverName failed."
+        Write-Output "Node: $($node.Name) - Domain $($computerSystem.Domain) is not reachable"
     }
 
-    # Store the results in the array
-    $results += [PSCustomObject]@{
-        ServerName   = $serverName
-        SerialNumber = $biosInfo.SerialNumber
-        ComputerName = $computerSystem.Name
-        DomainName   = $domainName
-        Model        = $model
-        PingStatus   = $pingStatus
-    }
+    # Close the PSSession
+    Remove-PSSession -Session $session
 }
 
-# Output the results
-$results
 
 
 
@@ -290,5 +275,6 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
         $missingUpdates | ForEach-Object { Write-Host $_.HotFixID -ForegroundColor Red }
     }
 }
+
 
 
