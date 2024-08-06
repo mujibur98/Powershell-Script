@@ -89,7 +89,7 @@ foreach ($sourceNode in $clusterNodes) {
 }
 
 
-Write-Host "****************************************Check network card packet erros******************************" 
+Write-Host "****************************************Check network card packet errors******************************" 
 
 
 # Get all cluster nodes
