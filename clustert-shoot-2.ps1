@@ -1,15 +1,15 @@
 # Get the BIOS manufacturer
-$biosManufacturer = (Get-WmiObject win32_bios).Manufacturer
+#$biosManufacturer = (Get-WmiObject win32_bios).Manufacturer
 
 # Check if the manufacturer is Dell
-if ($biosManufacturer -ne "Dell Inc.") {
-    Write-Output " Verification failed not Dell System. Exiting script." 
-    exit
-}
+#if ($biosManufacturer -ne "Dell Inc.") {
+#    Write-Output " Verification failed not Dell System. Exiting script." 
+#    exit
+#}
 
-Write-Output "Verifying Dell System...." 
+#Write-Output "Verifying Dell System...." 
 
-Start-Sleep -s 5
+#Start-Sleep -s 5
 clear-host
 
 Write-Host "****************************************Verifying Cluster Node Details ****************************************" 
