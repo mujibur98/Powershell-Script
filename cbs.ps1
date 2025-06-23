@@ -1,5 +1,5 @@
 # Define CBS log path
-$cbsLogPath = "$env:systemroot\Logs\CBS\CBS.log"
+$cbsLogPath = "$env:systemroot\CBS.log"
 
 # Function to filter error lines
 function GetErrorLines($logPath) {
