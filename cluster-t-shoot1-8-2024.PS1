@@ -52,7 +52,7 @@ foreach ($node in $clusterNodes) {
 
 
 
-Write-Host "******************************Ping Cluster Nodes******************************" 
+Write-Host "*********************************Ping Cluster Nodes*********************************" 
 
 foreach ($sourceNode in $clusterNodes) {
     foreach ($targetNode in $clusterNodes) {
@@ -182,7 +182,7 @@ foreach ($node in $clusterNodes) {
 $referenceProperties = @{}
 $firstNode = $true
 
-Write-Host "******************************OS Version***************************************" 
+Write-Host "**********************************OS Version******************************************" 
 # Loop through each node and get the required information
 foreach ($node in $clusterNodes) {
     # Use Invoke-Command to run Get-ComputerInfo on the remote node
@@ -245,7 +245,7 @@ foreach ($node in $clusterNodes) {
     $nodeName = $node.Name
     $nodeUpdates = $allUpdates[$nodeName]
     $missingUpdates = @()
-#Write-Host "********************Microsoft KB each nodes******************************" 
+#Write-Host "************************Microsoft KB each nodes**********************************" 
     foreach ($comparisonNode in $clusterNodes) {
         if ($comparisonNode -ne $node) {
             $comparisonNodeName = $comparisonNode.Name
@@ -276,6 +276,7 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
         $missingUpdates | ForEach-Object { Write-Host $_.HotFixID -ForegroundColor Red }
     }
 }
+
 
 
 
