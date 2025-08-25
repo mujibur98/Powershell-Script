@@ -5,7 +5,7 @@
 # Display Terms & Conditions
 $terms = @"
 ===============================
-⚠️ Terms & Conditions
+Terms & Conditions
 ===============================
 This script will perform the following checks on your cluster environment:
 
@@ -322,3 +322,4 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
     }
 
 }
+
