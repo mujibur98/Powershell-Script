@@ -57,7 +57,7 @@ Write-Output "Verifying Dell System...."
 Start-Sleep -s 5
 clear-host
 
-Write-Host "***************************Ping Cluster Node to DC ************************************" 
+Write-Host "****************************Ping Cluster Node to DC ************************************" 
 # Get all cluster nodes
 $clusterNodes = Get-ClusterNode
 
@@ -97,7 +97,7 @@ foreach ($node in $clusterNodes) {
 
 
 
-Write-Host "***********************************Ping Cluster Nodes***********************************" 
+Write-Host "***********************************Ping Cluster Nodes************************************" 
 
 foreach ($sourceNode in $clusterNodes) {
     foreach ($targetNode in $clusterNodes) {
@@ -119,7 +119,7 @@ foreach ($sourceNode in $clusterNodes) {
 }
 
 
-Write-Host "******************************Cluster Nodes Open Ports**********************************" 
+Write-Host "******************************Cluster Nodes Open Ports***********************************" 
 $ports = @(135, 445, 139, 3343)
 foreach ($node in $clusternodes) {
     foreach ($port in $ports) {
@@ -160,7 +160,7 @@ foreach ($node in $clusterNodes) {
 
 
 # Loop through each node
-Write-Host "********************************Checking Cluster services*********************************" 
+Write-Host "********************************Checking Cluster services***********************************" 
 foreach ($node in $clusterNodes) {
   # Get the Cluster Service status on the current node
   $clusterService = Get-Service -ComputerName $node.Name -Name clussvc
@@ -177,7 +177,7 @@ foreach ($node in $clusterNodes) {
 
 # Get all cluster nodes
 
-Write-Host "*******************************Host Hardware Driver Version*******************************" 
+Write-Host "*******************************Host Hardware Driver Version********************************" 
 # Define a list of vendors
 $vendors = @("mellanox", "broadcom", "Intel(R) C620 series chipset SPI", "qlogic", "Matrox", "Marvell Semiconductor Inc", "Dell Corporation", "Intel(R) Gigabit","Intel(R) Ethernet")
 
@@ -322,5 +322,6 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
     }
 
 }
+
 
 
