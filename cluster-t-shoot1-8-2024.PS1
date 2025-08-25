@@ -12,7 +12,7 @@ Write-Output "Verifying Dell System...."
 Start-Sleep -s 5
 clear-host
 
-Write-Host "******************************Ping Cluster Node to DC ******************************" 
+Write-Host "******************************Ping Cluster Node to DC ************************************" 
 # Get all cluster nodes
 $clusterNodes = Get-ClusterNode
 
@@ -74,7 +74,7 @@ foreach ($sourceNode in $clusterNodes) {
 }
 
 
-Write-Host "******************************Cluster Nodes Open Ports******************************" 
+Write-Host "******************************Cluster Nodes Open Ports**********************************" 
 $ports = @(135, 445, 139, 3343)
 foreach ($node in $clusternodes) {
     foreach ($port in $ports) {
@@ -93,7 +93,7 @@ foreach ($node in $clusternodes) {
 
 # Specify the UNC path to the CLUSDB file
 $clusdbPath = "\\$($clusterNodes[0].Name)\C$\Windows\cluster\CLUSDB"
-Write-Host "******************************Cluster Nodes Clusdb Status******************************" 
+Write-Host "******************************Cluster Nodes Clusdb Status********************************" 
 foreach ($node in $clusterNodes) {
     # Construct the UNC path for each node
     $nodeClusdbPath = "\\$($node.Name)\C$\Windows\cluster\CLUSDB"
@@ -182,7 +182,7 @@ foreach ($node in $clusterNodes) {
 $referenceProperties = @{}
 $firstNode = $true
 
-Write-Host "******************************OS Version******************************" 
+Write-Host "******************************OS Version***************************************" 
 # Loop through each node and get the required information
 foreach ($node in $clusterNodes) {
     # Use Invoke-Command to run Get-ComputerInfo on the remote node
@@ -276,6 +276,7 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
         $missingUpdates | ForEach-Object { Write-Host $_.HotFixID -ForegroundColor Red }
     }
 }
+
 
 
 
