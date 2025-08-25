@@ -12,7 +12,7 @@ Write-Output "Verifying Dell System...."
 Start-Sleep -s 5
 clear-host
 
-Write-Host "******************************Ping Cluster Node to DC ************************************" 
+Write-Host "******************************Ping Cluster Node to DC *****************************************" 
 # Get all cluster nodes
 $clusterNodes = Get-ClusterNode
 
@@ -276,6 +276,7 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
         $missingUpdates | ForEach-Object { Write-Host $_.HotFixID -ForegroundColor Red }
     }
 }
+
 
 
 
