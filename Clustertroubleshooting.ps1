@@ -177,7 +177,7 @@ foreach ($node in $clusterNodes) {
 
 
 # Get all cluster nodes
-*
+
 Write-Host "******************************Host Hardware Driver Version******************************" 
 # Define a list of vendors
 $vendors = @("mellanox", "broadcom", "Intel(R) C620 series chipset SPI", "qlogic", "Matrox", "Marvell Semiconductor Inc", "Dell Corporation", "Intel(R) Gigabit","Intel(R) Ethernet")
@@ -323,3 +323,4 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
     }
 
 }
+
