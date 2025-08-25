@@ -1,3 +1,49 @@
+
+# =========================
+# Cluster Validation Script
+# =========================
+
+# Display Terms & Conditions
+$terms = @"
+===============================
+⚠️ Terms & Conditions
+===============================
+This script will perform the following checks on your cluster environment:
+
+1. Verify system is a Dell machine.
+2. Collect cluster node details:
+   - Service Tag
+   - Computer Name
+   - Domain
+   - Model
+   - Ping to Domain Controller
+3. Ping all cluster nodes.
+4. Check port status:
+   - Port 135
+   - Port 445
+   - Port 139
+   - Port 3343
+5. Check for cluster database corruption.
+6. Verify Cluster Service is running.
+7. Compare driver versions across nodes.
+8. Verify OS Display, BIOS, and OS version.
+9. Check for missing OS updates between servers.
+
+This script performs read-only checks and requires administrative privileges.
+
+Do you accept these terms? (Y/N)
+"@
+
+Write-Host $terms -ForegroundColor Yellow
+$accept = Read-Host "Enter Y to continue or N to exit"
+
+if ($accept -ne 'Y') {
+    Write-Host "Script execution cancelled by user." -ForegroundColor Red
+    exit
+}
+
+
+
 # Get the BIOS manufacturer
 $biosManufacturer = (Get-WmiObject win32_bios).Manufacturer
 
@@ -275,4 +321,5 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
         Write-Host "Missing updates:"
         $missingUpdates | ForEach-Object { Write-Host $_.HotFixID -ForegroundColor Red }
     }
+
 }
