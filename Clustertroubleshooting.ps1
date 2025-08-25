@@ -1,4 +1,3 @@
-
 # =========================
 # Cluster Validation Script
 # =========================
@@ -323,4 +322,3 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
     }
 
 }
-
