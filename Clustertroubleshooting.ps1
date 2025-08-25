@@ -160,7 +160,7 @@ foreach ($node in $clusterNodes) {
 
 
 # Loop through each node
-Write-Host "********************************Checking Cluster services***********************************" 
+Write-Host "********************************Checking Cluster services*************************************" 
 foreach ($node in $clusterNodes) {
   # Get the Cluster Service status on the current node
   $clusterService = Get-Service -ComputerName $node.Name -Name clussvc
@@ -227,7 +227,7 @@ foreach ($node in $clusterNodes) {
 $referenceProperties = @{}
 $firstNode = $true
 
-Write-Host "***********************************OS Version********************************************" 
+Write-Host "************************************OS Version*********************************************" 
 # Loop through each node and get the required information
 foreach ($node in $clusterNodes) {
     # Use Invoke-Command to run Get-ComputerInfo on the remote node
@@ -322,6 +322,7 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
     }
 
 }
+
 
 
 
