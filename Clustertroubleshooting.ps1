@@ -160,7 +160,7 @@ foreach ($node in $clusterNodes) {
 
 
 # Loop through each node
-Write-Host "********************************Checking Cluster services*************************************" 
+Write-Host "*******************************Checking Cluster services***********************************" 
 foreach ($node in $clusterNodes) {
   # Get the Cluster Service status on the current node
   $clusterService = Get-Service -ComputerName $node.Name -Name clussvc
@@ -322,6 +322,7 @@ foreach ($result in $comparisonResults.GetEnumerator()) {
     }
 
 }
+
 
 
 
